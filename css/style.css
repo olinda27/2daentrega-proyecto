@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+/*Estilos generales*/
+
+*::after,
+*::before,
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /*Tamaño de letra*/
+    --text-large:2.8rem;
+    --text-medium:1.6rem;
+    --text-tittle:2.3rem;
+    --text-base:1.5rem;
+    --text-small:1.2rem;
+
+    /*Colores*/
+    --color-titulos:rgb(55,75,115);
+    --color-textos:rgb(125,125,125);
+    --color-fondos:rgba(255,241,237,0.8);
+    --color-alternativo:rgb(255,129,151);
+    --color-background: rgb(255, 129, 151, 0.8)
+}
+
+/*Nav*/
+#navbar{
+    grid-area: navbar;
+    background-color: var(--color-fondos);
+    border-bottom: 2px solid var(--color-alternativo);
+}
+
+    #navbar img{
+        width: 200px;
+    }
+
+    #navbar a{
+        font-size: var(--text-base);
+        color: var(--color-titulos);
+    }
+
+    #navbar ul ul{
+        margin-top: 10px;
+        background-color: var(--color-fondos);
+        border: 2px solid var(--color-alternativo);
+    }
+
+/*Imagen del header*/
+#imagenHeader{
+    width: 100%;
+}
+
+/* Empieza Contenedores y grid del body*/
+
+.contenedorPadre{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "navbar"
+    "header"
+    "main"
+    "aside"
+    "footer";
+}
+
+@media (min-width: 768px){
+    .contenedorPadre{
+        grid-template-columns: 1fr;
+        grid-template-columns: auto;
+        grid-template-areas: 
+        "navbar"
+        "header"
+        "main" 
+        "aside"
+        "footer";
+    }
+
+    #contenido{
+        display: flex;      
+    }
+
+}
+
+@media (min-width: 1024px){
+    .contenedorPadre{
+        grid-template-columns: 85vw 15vw;
+        grid-template-columns: auto;
+        grid-template-areas: 
+        "navbar navbar"
+        "header header"
+        "main aside" 
+        "footer footer";
+    }
+    
+}
+
+.contenedorRecetas{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "navbar"
+    "header"
+    "filtros"
+    "main"
+    "aside"
+    "footer";
+}
+
+@media (min-width: 768px){
+    .contenedorRecetas{
+        grid-template-columns: 10vw 90vw;
+        grid-template-columns: auto;
+        grid-template-areas: 
+        "navbar navbar"
+        "header header"
+        "filtros main" 
+        "aside aside"
+        "footer footer";
+    }
+
+    #contenido{
+        display: flex;      
+    }
+
+}
+
+@media (min-width: 1024px){
+    .contenedorRecetas{
+        grid-template-columns: 15vw 70vw 15vw;
+        grid-template-columns: auto;
+        grid-template-areas: 
+        "navbar navbar navbar"
+        "header header header"
+        "filtros main aside" 
+        "footer footer footer";
+    }
+
+}
+
+#nav{
+    grid-area: navbar;
+    
+}
+
+#header{
+    grid-area: header;
+}
+
+#filtros{
+    grid-area: filtros;
+    background: linear-gradient(to bottom, var(--color-background), var(--color-fondos));
+    padding: 30px;
+    margin-top: 19px;
+    margin-bottom: 9px;
+    line-height: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    color: var(--color-titulos);
+    margin-inline: 10px;
+    width: auto;
+
+}
+
+
+#filtros h4, ul{
+    font-size: var(--text-medium);
+}
+
+#main{
+    grid-area: main;
+}
+
+#aside{
+    grid-area: aside;
+    background: linear-gradient(to bottom, var(--color-background), var(--color-fondos));
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    margin-top: 19px;
+    margin-bottom: 9px;
+    line-height: 40px;
+    border-radius: 20px;
+    margin-inline: 10px;
+    width: auto;
+}
+
+/*Estilo de links aside*/
+#aside ul{
+    list-style: none;
+}
+
+#aside ul li a{
+    text-decoration: none;
+    color: var(--color-titulos);
+    font-size: var(--text-medium);
+}
+
+#aside ul li:hover{
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+#aside ul li a:hover{
+    color: rgb(0, 0, 0);
+    transition: all 1s;
+}
+
+#footer{
+    grid-area: footer;
+    border-top: 2px var(--color-alternativo) solid;
+    padding: 5px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: var(--color-fondos);
+}
+
+    #footer{
+        font-size: var(--text-base);
+        color: var(--color-titulos);
+    }
+
+
+#size-figures{
+    width: 200px;
+    border-radius: 20px;
+}
+
+#size-figure-recetas{
+    width: 280px;
+    border-radius: 20px;
+}
+
+/*Termina contenedor padre y grid del body*/
+
+/*Clases comunes*/
+.border-comun{
+    border: dotted 2px var(--color-alternativo);
+    border-radius: 20px;    
+    margin: 20px;
+    padding: 5px;
+}
+
+.titulos-comunes{
+    font-size: var(--text-large);
+    color: var(--color-titulos);
+}
+
+.textos-comunes{
+    color: var(--color-textos);
+    font-size: var(--text-medium);
+    margin: 10px 10px;
+}
+
+.mid-titulos{
+    font-size: var(--text-tittle);
+    color: var(--color-titulos);
+    padding: 5px;
+}
+
+.filtrosTittle{
+    font-size: var(--text-tittle);
+    color: var(--color-titulos);
+}
+
+.margin-inline{
+    margin-inline: 30px;
+}
+
+.cajas-figures{
+    color: var(--color-titulos);
+    font-size: var(--text-base);
+    padding: 5px;
+    text-decoration: none;
+}
+
+.titulo-receta{
+    color: var(--color-titulos);
+    font-size: var(--text-base);
+    padding: 5px;
+    text-decoration: none;
+}
+
+/*Contacto*/
+main section div form,iframe{
+    width: 390px;
+    height: 350px;
+    padding: 12px 20px;
+}
+
+main section div form{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: var(--color-alternativo);
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
